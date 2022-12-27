@@ -1,0 +1,2 @@
+!function(){var e={incrementBtn:document.querySelector('[data-action="increment"]'),decrementBtn:document.querySelector('[data-action="decrement"]'),currentValue:document.querySelector("#value")},t=0;e.incrementBtn.addEventListener("click",(function(){t+=1,e.currentValue.textContent=t})),e.decrementBtn.addEventListener("click",(function(){t-=1,e.currentValue.textContent=t}))}();
+//# sourceMappingURL=01-counter.236bc794.js.map

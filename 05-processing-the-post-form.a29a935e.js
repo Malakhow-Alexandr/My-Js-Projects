@@ -1,0 +1,2 @@
+!function(){var e=document.querySelector(".login-form");document.querySelector('input[name="email"]'),document.querySelector('input[name="password"]');e.addEventListener("submit",(function(a){a.preventDefault();var r=a.currentTarget.elements;if(!r.email.value||!r.password.value)alert("Plese enter all of your data!");var t=r.email.value,l=r.password.value,n={mail:t,password:l};console.log(n),e.reset()}))}();
+//# sourceMappingURL=05-processing-the-post-form.a29a935e.js.map
