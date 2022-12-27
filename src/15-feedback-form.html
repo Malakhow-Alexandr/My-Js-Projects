@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback form</title>
+    <link rel="stylesheet" href="./sass/_15-feedback-form.scss" />
+  </head>
+  <body>
+    <p><a href="index.html">Go back</a></p>
+
+    <form class="feedback-form" autocomplete="off">
+      <label>
+        Email
+        <input type="email" name="email" autofocus />
+      </label>
+      <label>
+        Message
+        <textarea name="message" rows="8"></textarea>
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+    <p>
+      The form listens for the input event, and every 500ms writes data to the
+      local storage.<br> When loading the page, if there is data in the local
+      storage, it substitutes them into the inputs.<br> When submitting, the form is
+      cleared and outputs the object with the data to the console.
+    </p>
+    <script src="./js/15-feedback-form.js" type="module"></script>
+  </body>
+</html>
