@@ -1,3 +1,23 @@
 @import './common';
 @import './scss-for-all';
 @import './08-gallery';
+@import './09-color-picker';
+@import './10-tic-tac-toe-game';
+@import './11-create-cars-markup';
+@import './12-cars-by-select';
+
+ul {
+  list-style: none;
+}
+
+.nav-link {
+  display: block;
+  margin-top: 10px;
+
+  margin-left: 20px;
+  text-decoration: none;
+  color: currentColor;
+}
+.nav-link:hover {
+  color: green;
+}
