@@ -1,0 +1,2 @@
+const e={input:document.querySelector(".js-input"),nameLabel:document.querySelector(".js-btn > span"),lisenceCheckbox:document.querySelector(".js-license"),btn:document.querySelector(".js-btn")};e.input.addEventListener("input",(function(n){e.nameLabel.textContent=n.currentTarget.value})),e.lisenceCheckbox.addEventListener("change",(function(n){e.btn.disabled=!n.currentTarget.checked}));
+//# sourceMappingURL=02-changin-text-by-input.e0de2f52.js.map
