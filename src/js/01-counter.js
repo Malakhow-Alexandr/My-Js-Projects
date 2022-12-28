@@ -14,3 +14,4 @@ const refs = {
     total -= 1;
     refs.currentValue.textContent = total;
   });
+ 

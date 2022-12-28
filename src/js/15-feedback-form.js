@@ -39,4 +39,5 @@ function populateFormOutput() {
   if (savedData && parseData.message) {
     refs.formTextarea.value = parseData.message;
   }
-}
+};
+console.log('Privet')

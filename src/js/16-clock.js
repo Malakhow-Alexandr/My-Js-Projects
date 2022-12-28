@@ -10,7 +10,7 @@ const refs = {
 };
 
 const dayOfTheWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Satu'];
-const month = [
+const monthOfTheYear = [
   'Jan',
   'Feb',
   'Mar',
@@ -37,7 +37,7 @@ setInterval(() => {
 
   refs.day.textContent = dayOfTheWeek[day];
   refs.date.textContent = date;
-  refs.month.textContent = month[month];
+  refs.month.textContent = monthOfTheYear[month];
   refs.year.textContent = year;
 
   const digClockStr = `${hours.toString().padStart(2, '0')}:${minutes
@@ -53,3 +53,4 @@ setInterval(() => {
   refs.minutesArrow.style.transform = `rotate(${minutes * secMinDeg}deg)`;
   refs.hoursArrow.style.transform = `rotate(${hours * hoursDeg + (hoursDeg / 60 * minutes)}deg)`;
 }, 1000);
+
