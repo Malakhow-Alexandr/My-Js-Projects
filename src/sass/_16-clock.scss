@@ -1,26 +1,18 @@
-.clock-body {
-  background-image: url(https://abrakadabra.fun/uploads/posts/2022-01/1641297144_24-abrakadabra-fun-p-standartnie-zastavki-26.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.clock{
-    width: 300px;
-    height: 300px;
-    background-image: url(https://papik.pro/uploads/posts/2021-12/thumbs/1639326652_21-papik-pro-p-tsiferblat-klipart-22.png);
+body {
+    background-image: url(https://abrakadabra.fun/uploads/posts/2022-01/1641297144_24-abrakadabra-fun-p-standartnie-zastavki-26.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
+  }
+  
+  .clock {
+    width: 550px;
+    height: 550px;
+    background-image: url(https://papik.pro/uploads/posts/2021-12/thumbs/1639326652_21-papik-pro-p-tsiferblat-klipart-22.png);
+    background-color: rgba(255, 255, 255, 0);
     background-size: cover;
     border-radius: 50%;
     position: relative;
-}
-.clock-center {
-    position: absolute;  
-    background-color: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
+    left: 525px;
   }
   .clock-arrow{
     position: absolute;
@@ -30,13 +22,22 @@
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
   }
+  .clock-center {
+    position: absolute;  
+    background-color: white;
+    top: 268px;
+    left: 268px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
   .clock-seconds__arrow {
     bottom: 50%;
     left: 50%;
     width: 5px;
     height: 40%;
   }
-.clock-minutes__arrow {
+  .clock-minutes__arrow {
     bottom: 50%;
     left: 50%;
     width: 7px;
@@ -48,3 +49,26 @@
     width: 12px;
     height: 24%;
   }
+  .date{
+    width: 100px;
+    height: 100px;
+    color: black;
+  }
+  .calendar {
+    display: flex;
+    justify-content: space-between;
+  }
+  .date-style {
+    display: flex;
+    font-size: 40px;
+    font-weight: 900;
+    text-shadow: 3px 3px 2px #CECBCD;
+  }
+  .digital-clock{
+    text-align: center;
+    font-size: 60px;
+    text-shadow: 3px 3px 2px #CECBCD;
+  }
+
+
+
