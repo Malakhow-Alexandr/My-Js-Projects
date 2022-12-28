@@ -1,3 +1,23 @@
-body{
-    background-image: url(../../src/images/clockBackgroundImg.jpg);
+.clock-body {
+  background-image: url(https://abrakadabra.fun/uploads/posts/2022-01/1641297144_24-abrakadabra-fun-p-standartnie-zastavki-26.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+.clock{
+    width: 300px;
+    height: 300px;
+    background-image: url(https://papik.pro/uploads/posts/2021-12/thumbs/1639326652_21-papik-pro-p-tsiferblat-klipart-22.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    position: relative;
+}
+.clock-center {
+    position: absolute;  
+    background-color: white;
+    top: 268px;
+    left: 268px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
