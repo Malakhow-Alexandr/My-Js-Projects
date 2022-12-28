@@ -15,9 +15,36 @@
 .clock-center {
     position: absolute;  
     background-color: white;
-    top: 268px;
-    left: 268px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 20px;
     height: 20px;
     border-radius: 50%;
+  }
+  .clock-arrow{
+    position: absolute;
+    background-color: white;
+    transform-origin: bottom;
+    transform: translateX(-50%);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+  .clock-seconds__arrow {
+    bottom: 50%;
+    left: 50%;
+    width: 5px;
+    height: 40%;
+  }
+.clock-minutes__arrow {
+    bottom: 50%;
+    left: 50%;
+    width: 7px;
+    height: 33%;
+  }
+  .clock-hours__arrow {
+    bottom: 50%;
+    left: 50%;
+    width: 12px;
+    height: 24%;
   }
