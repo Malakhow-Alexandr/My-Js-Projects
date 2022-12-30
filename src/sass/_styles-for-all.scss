@@ -1,0 +1,25 @@
+body {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+ul {
+    list-style: none;
+  }
+  
+  .nav-link {
+    display: block;
+    
+  
+    margin-left: 20px;
+    text-decoration: none;
+    color: currentColor;
+  }
+
+  .nav-link:not(:last-child){
+    margin-bottom: 15px;
+  }
+  .nav-link:hover {
+    color: green;
+  }
+  

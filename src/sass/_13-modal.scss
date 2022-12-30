@@ -3,9 +3,10 @@ body.show-modal .backdrop {
     pointer-events: initial;
     visibility: visible;
   }
-  body.show-modal .modal {
+  body.show-modal .modal-window {
     transform: scale(1);
   }
+  
   .backdrop {
     display: flex;
     justify-content: center;
@@ -24,7 +25,7 @@ body.show-modal .backdrop {
     transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
   }
   
-  .modal {
+  .modal-window {
     padding: 24px;
     border-radius: 4px;
     max-width: 640px;
