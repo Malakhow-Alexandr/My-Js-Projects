@@ -1,0 +1,2 @@
+const e={start:document.querySelector(".js-casino-start"),container:document.querySelector(".js-casino-container")};function t(e,t,n){const r=Math.random();new Promise(((o,c)=>{r>e?o(t):c(n)}))}e.start.addEventListener("submit",(function(n){n.preventDefault();const r=e.container.children.length,{level:{value:o}}=n.currentTarget.elements;for(i=0;i<r;i+=1)t(Number(o),"💰","🤑"),console.log(t(Number(o),"💰","🤑"))}));
+//# sourceMappingURL=20-promises-casino.16a674ec.js.map
