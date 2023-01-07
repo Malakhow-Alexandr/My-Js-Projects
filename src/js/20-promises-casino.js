@@ -1,34 +1,64 @@
 const refs = {
-  start: document.querySelector('.js-casino-start'),
+  formCasino: document.querySelector('.js-casino-start'),
   container: document.querySelector('.js-casino-container'),
+  strBtn: document,
 };
+const delay = 600;
 
-refs.start.addEventListener('submit', startGame);
+refs.formCasino.addEventListener('submit', onStartGame);
 
-function startGame(evt) {
-  evt.preventDefault();
-
-  const cildrenLength = refs.container.children.length;
-
+function onStartGame(event) {
+  event.preventDefault();
+  const goodSmileArr = [];
+  const badSmileArr = [];
+  const childrenLength = refs.container.children.length;
   const {
     level: { value: level },
-  } = evt.currentTarget.elements;
+    start,
+  } = event.currentTarget.elements;
 
-
-  for (i = 0; i < cildrenLength; i += 1) {
-    createPromise(Number(level), '💰', '🤑')
-    console.log(createPromise(Number(level), '💰', '🤑'))
+  start.disabled = true;
+  for (let i = 0; i < childrenLength; i += 1) {
+    const item = refs.container.children[i];
+    item.textContent = '';
+    createPromise(Number(level), '🤑', '😰', delay * (i + 0.5))
+      .then(response => {
+        markFild(item, response);
+        goodSmileArr.push(response);
+      })
+      .catch(response => {
+        markFild(item, response);
+        badSmileArr.push(response);
+      })
+      .finally(() => {
+        if (i === childrenLength - 1) {
+          start.disabled = false;
+          const result =
+            goodSmileArr.length === childrenLength ||
+            badSmileArr.length === childrenLength;
+          if (result) {
+            console.log('you are winner');
+          }
+        }
+      });
   }
 }
 
-function createPromise(level, win, lose) {
-  const random = Math.random();
-  const promise = new Promise((res, rej) => {
-    if (random > level) {
-      res(win);
-    } else {
-      rej(lose);
-    }
-  });
+function markFild(item, smile) {
+  item.textContent = smile;
+}
 
+function createPromise(level, win, lose, delay) {
+  const random = Math.random() > level;
+
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (random) {
+        resolve(win);
+      } else {
+        reject(lose);
+      }
+    }, delay);
+  });
+  return promise;
 }
