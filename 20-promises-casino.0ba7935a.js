@@ -1,2 +1,0 @@
-!function(){var e={start:document.querySelector(".js-casino-start"),container:document.querySelector(".js-casino-container")};function n(e,n,t){var r=Math.random();new Promise((function(o,a){r>e?o(n):a(t)}))}e.start.addEventListener("submit",(function(t){t.preventDefault();var r=e.container.children.length,o=t.currentTarget.elements.level.value;for(i=0;i<r;i+=1)n(Number(o),"💰","🤑"),console.log(n(Number(o),"💰","🤑"))}))}();
-//# sourceMappingURL=20-promises-casino.0ba7935a.js.map
