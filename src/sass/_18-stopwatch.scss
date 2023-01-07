@@ -1,0 +1,51 @@
+.timer {
+    display: flex;
+    gap: 20px;
+  }
+  .value {
+    display: block;
+    font-size: 30px;
+  }
+  .label {
+    display: block;
+    font-size: 20px;
+  }
+  .timer-body {
+    padding: 20px;
+  }
+  
+  .style-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .input-date {
+    margin-bottom: 20px;
+    width: 200px;
+    font-size: 15px;
+    padding: 6px 0 4px 10px;
+    border: 1px solid #cecece;
+    background: #f6f6f6;
+    border-radius: 8px;
+  }
+  .timer-button {
+    border-radius: 8px;
+    width: 80px;
+    height: 30px;
+    font-size: 15px;
+    border-color: #3498db;
+    color: #fff;
+    box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+    transition: all 150ms ease-in-out;
+  
+    &:hover {
+      box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+      color: black;
+    }
+    &:disabled {
+      box-shadow: none;
+      color: black;
+      cursor: pointer;
+    }
+  }
+  

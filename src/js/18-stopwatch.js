@@ -1,57 +1,106 @@
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
+
+import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 const refs = {
-  clockFace: document.querySelector('.js-clock-stopwatch'),
-  startBtn: document.querySelector('button[data-action-start]'),
-  stopBtn: document.querySelector('button[data-action-stop]'),
+  input: document.querySelector('#datetime-picker'),
+  startBtn: document.querySelector('button[data-start]'),
+  daysField: document.querySelector('span[data-days]'),
+  hoursField: document.querySelector('span[data-hours]'),
+  minutesField: document.querySelector('span[data-minutes]'),
+  secondsField: document.querySelector('span[data-seconds]'),
 };
 
+makeDisabledBtn();
+let inervalId = null;
+let isActive = false;
+const currentDate = new Date();
 
-class Stopwatch {
-  constructor({ onTick }) {
-    this.intervalId = null;
-    this.isActive = false;
-    this.onTick = onTick;
-  }
+const options = {
+  enableTime: true,
+  time_24hr: true,
+  defaultDate: new Date(),
+  minuteIncrement: 1,
+  onClose(selectedDates) {
+    if (selectedDates[0] < currentDate) {
+      makeDisabledBtn(true);
 
-  start() {
-    if (this.isActive) {
+      Notiflix.Notify.failure('Please choose a date in the future');
       return;
     }
-    const startTime = Date.now();
-    this.isActive = true;
-    this.intervalId = setInterval(() => {
-      const currentTime = Date.now();
-      const stopwatchTime = this.getTimeComponents(currentTime - startTime);
+    makeDisabledBtn(false);
 
-      this.onTick(stopwatchTime);
-    }, 1000);
+    const selectedTime = selectedDates[0].getTime();
+
+    refs.startBtn.addEventListener('click', () => {
+      onBtnClick(selectedTime);
+    });
+  },
+};
+
+function onBtnClick(selectedTime) {
+  if (isActive) {
+    return;
   }
-  stop() {
-    clearInterval(stopwatch.intervalId);
-    this.isActive = false;
-    const time = this.getTimeComponents(0);
-    this.onTick(time);
-  }
-  pad(value) {
-    return String(value).padStart(2, '0');
-  }
-  getTimeComponents(time) {
-    const hours = this.pad(
-      Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-    );
-    const mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
-    const seconds = this.pad(Math.floor((time % (1000 * 60)) / 1000));
-    return { hours, mins, seconds };
-  }
+  Notiflix.Notify.success('Date entered correctly. Timer started!');
+
+  makeDisabledBtn(true);
+
+  makeDisabledInput(true);
+
+  const inervalId = setInterval(() => {
+    isActive = true;
+    const currentTime = Date.now();
+
+    const referenceTime = currentTime - selectedTime;
+
+    const { days, hours, minutes, seconds } = convertMs(referenceTime * -1);
+
+    makeMarkupTextContent(days, hours, minutes, seconds);
+
+    if (referenceTime >= -1000) {
+      Notiflix.Notify.success('The timer has finished!');
+      isActive = false;
+      makeDisabledInput(false);
+      clearInterval(inervalId);
+    }
+  }, 1000);
 }
 
-const stopwatch = new Stopwatch({
-  onTick: updateClockFace,
-});
+const fp = flatpickr(refs.input, options);
 
-refs.startBtn.addEventListener('click', stopwatch.start.bind(stopwatch));
-refs.stopBtn.addEventListener('click', stopwatch.stop.bind(stopwatch));
+function makeMarkupTextContent(days, hours, minutes, seconds) {
+  refs.daysField.textContent = pad(days);
+  refs.hoursField.textContent = pad(hours);
+  refs.minutesField.textContent = pad(minutes);
+  refs.secondsField.textContent = pad(seconds);
+}
 
+function makeDisabledBtn(boolean) {
+  refs.startBtn.disabled = boolean;
+}
 
-function updateClockFace({ hours, mins, seconds }) {
-  refs.clockFace.textContent = `${hours}:${mins}:${seconds}`;
+function makeDisabledInput(boolean) {
+  refs.input.disabled = boolean;
+}
+
+function convertMs(ms) {
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
+
+  const days = Math.floor(ms / day);
+  const hours = Math.floor((ms % day) / hour);
+
+  const minutes = Math.floor(((ms % day) % hour) / minute);
+
+  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+
+  return { days, hours, minutes, seconds };
+}
+function pad(value) {
+  return String(value).padStart(2, '0');
 }

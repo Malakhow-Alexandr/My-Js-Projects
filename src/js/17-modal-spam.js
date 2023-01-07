@@ -1,4 +1,6 @@
 import BSN from 'bootstrap.native';
+import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
   modal: document.querySelector('#exampleModal'),
@@ -33,6 +35,6 @@ function onSubacribeBtnClick() {
   hasSubacribed = true;
   modal.hide();
   setTimeout(() => {
-    alert('thanks for subscribing!');
+    Notiflix.Notify.success('✅ thanks for subscribing!');
   }, 500);
 }

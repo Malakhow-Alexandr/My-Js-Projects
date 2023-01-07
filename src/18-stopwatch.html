@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./sass/index.scss">
-    <title>Stopwatch</title>
-</head>
-<body>
-    <a class="nav-link" href="./index.html">Go back</a>
-<div class="stopwatch">
-    <p class="clock-stopwatch js-clock-stopwatch">00:00:00</p>
-    <div class="actions">
-        <button class="stopwatch-btn" data-action-start>Start</button>
-        <button class="stopwatch-btn" data-action-stop>Stop</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown timer</title>
+    <link rel="stylesheet" href="./sass/index.scss" />
+  </head>
+  <body class="timer-body">
+    <p><a class="nav-link" href="index.html">Go back</a></p>
+
+    <div class="style-container">
+      <input class="input-date" type="text" id="datetime-picker" />
+      <button class="timer-button" type="button" data-start>Start</button>
     </div>
-</div>
+
+    <div class="timer">
+      <div class="field">
+        <span class="value" data-days>00</span>
+        <span class="label">Days</span>
+      </div>
+      <div class="field">
+        <span class="value" data-hours>00</span>
+        <span class="label">Hours</span>
+      </div>
+      <div class="field">
+        <span class="value" data-minutes>00</span>
+        <span class="label">Minutes</span>
+      </div>
+      <div class="field">
+        <span class="value" data-seconds>00</span>
+        <span class="label">Seconds</span>
+      </div>
+    </div>
+
     <script src="./js/18-stopwatch.js" type="module"></script>
-</body>
+  </body>
 </html>
