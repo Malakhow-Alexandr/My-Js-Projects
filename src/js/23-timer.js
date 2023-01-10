@@ -17,7 +17,7 @@ let isActive = false;
 
 
 refs.btnContainer.addEventListener('click', event => {
-  if (event.target === refs.btnStart) {
+  if (event.target === refs.btnStart && !isActive) {
     onStartClick();
   } else if (event.target === refs.btnStop && isActive) {
     onStopClick();
