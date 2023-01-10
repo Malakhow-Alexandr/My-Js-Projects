@@ -33,13 +33,11 @@ function onStartClick() {
 function onResetClick(event) {
   refs.clockData.classList.remove('paused');
   clearInterval(timerId);
-  drowTimerTextcontent(00, 00, 00, 000);
 }
 
 function onStopClick() {
   refs.clockData.classList.add('paused');
   clearInterval(timerId);
-  drowTimerTextcontent(00, 00, 00, 000);
 }
 
 function drowTimerTextcontent(hours, minutes, seconds, ms) {
