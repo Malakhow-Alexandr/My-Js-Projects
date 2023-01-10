@@ -25,21 +25,21 @@ function onStartClick() {
     const hours = pad(dateTimer.getUTCHours());
     const minutes = pad(dateTimer.getUTCMinutes());
     const seconds = pad(dateTimer.getUTCSeconds());
-    const ms = padMs(dateTimer.getUTCMilliseconds() );
+    const ms = padMs(dateTimer.getUTCMilliseconds());
     drowTimerTextcontent(hours, minutes, seconds, ms);
   }, 10);
 }
 
-function onResetClick (event){
+function onResetClick(event) {
   refs.clockData.classList.remove('paused');
   clearInterval(timerId);
-  drowTimerTextcontent(00, 00, 00, 000)
+  drowTimerTextcontent(00, 00, 00, 000);
 }
 
-function onStopClick(){
+function onStopClick() {
   refs.clockData.classList.add('paused');
   clearInterval(timerId);
-  drowTimerTextcontent(00, 00, 00, 000)
+  drowTimerTextcontent(00, 00, 00, 000);
 }
 
 function drowTimerTextcontent(hours, minutes, seconds, ms) {
@@ -53,7 +53,5 @@ function pad(value) {
   return String(value).padStart(2, '0');
 }
 function padMs(value) {
-  return String(value).padStart(3, '0')+ 'ms';
+  return String(value).padStart(3, '0') + 'ms';
 }
-
-
