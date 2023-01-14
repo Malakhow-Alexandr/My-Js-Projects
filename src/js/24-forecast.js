@@ -10,13 +10,17 @@ function onSearch(evt) {
     query: { value: query },
     days: { value: days },
   } = evt.currentTarget.elements;
-  if(!query){return alert('Please add value!')}
+  if (!query) {
+    return alert('Please add value!');
+  }
 
-  weatherAPI(query, days).then(data => {
-    list.innerHTML = createMarkup(data.forecast.forecastday);
-  }).catch(error => {
-    console.log(error);
-  });
+  weatherAPI(query, days)
+    .then(data => {
+      list.innerHTML = createMarkup(data.forecast.forecastday);
+    })
+    .catch(error => {
+      list.innerHTML = createErrorMarcup();
+    });
 }
 
 function weatherAPI(query, days) {
@@ -28,7 +32,8 @@ function weatherAPI(query, days) {
         throw new Error(response.statusText);
       }
       return response.json();
-    }).catch(error => {
+    })
+    .catch(error => {
       console.log(error);
     });
 }
@@ -61,4 +66,8 @@ function createMarkup(arr) {
   </li>`
     )
     .join('');
+}
+
+function createErrorMarcup() {
+  return `<li><img src="https://www.techquintal.com/wp-content/uploads/2022/08/400-Bad-Request-Error.jpg" alt="bad request" width="320" /></li>`;
 }
