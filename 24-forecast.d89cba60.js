@@ -1,0 +1,2 @@
+const e=document.querySelector(".js-weather"),t=document.querySelector(".js-list");console.log(t),e.addEventListener("submit",(function(e){e.preventDefault();const{query:{value:t},days:{value:r}}=e.currentTarget.elements;(function(e,t){return fetch(`http://api.weatherapi.com/v1/forecast.json?key=f60c865d67554350816202559231101&q=${e}&days=${t}`).then((e=>{if(!e)throw new Error(e.statusText);return e.json()}))})(t,r).then((e=>{createMarkup(e)}))}));
+//# sourceMappingURL=24-forecast.d89cba60.js.map

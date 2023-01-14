@@ -1,0 +1,2 @@
+!function(){var e=document.querySelector(".js-weather"),t=document.querySelector(".js-list");console.log(t),e.addEventListener("submit",(function(e){e.preventDefault();var t=e.currentTarget.elements,n=t.query.value,r=t.days.value;(function(e,t){var n="f60c865d67554350816202559231101";return fetch("".concat("http://api.weatherapi.com/v1/forecast.json","?key=").concat(n,"&q=").concat(e,"&days=").concat(t)).then((function(e){if(!e)throw new Error(e.statusText);return e.json()}))})(n,r).then((function(e){createMarkup(e)}))}))}();
+//# sourceMappingURL=24-forecast.397f1287.js.map
