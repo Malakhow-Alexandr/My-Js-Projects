@@ -29,22 +29,22 @@ function weatherAPI(query, days) {
 }
 
 
-function createMarkup(arr) {
-  return arr.map(({})) => {
-    `<li class="js-list__item">
+// function createMarkup(arr) {
+//   return arr.map(({})) => {
+//     `<li class="js-list__item">
 
-<img class="js-list__img" src="" alt="" />
+// <img class="js-list__img" src="" alt="" />
 
-<h2 class="js-list__img-desc"></h2>
+// <h2 class="js-list__img-desc"></h2>
 
-<h3 class="js-list__forecast-data"></h3class>></h3>
+// <h3 class="js-list__forecast-data"></h3class>></h3>
 
-<h4 class="js-list__temperature"></h4>
+// <h4 class="js-list__temperature"></h4>
 
-<h5 class="js-list__sunrise"></h5>
+// <h5 class="js-list__sunrise"></h5>
 
-<h5 class="js-list__sunset"></h5>
+// <h5 class="js-list__sunset"></h5>
 
-</li>`;
-  }).join('');
-}
+// </li>`;
+//   }).join('');
+// }
