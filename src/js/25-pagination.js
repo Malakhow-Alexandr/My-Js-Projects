@@ -15,28 +15,30 @@ refs.loadMoreBtn.addEventListener('click', onLoadMore);
 function onSearch(event) {
   event.preventDefault();
   newsApiService.query = event.currentTarget.query.value;
+
   newsApiService.resetPage();
+
   newsApiService.fetchArticles().then(appendArticlesMarkup);
 }
 function onLoadMore() {
+  console.log('wtf?')
   newsApiService.fetchArticles(appendArticlesMarkup);
 }
 
 function renderArticleMarkup(arr) {
   return arr
     .map(
-      ({ author, title, description, url, urlToImage }) => `<li>
-  <a href="${url}" target="_blank" rel="noopener noreferrer">
+      ({ author, title, description, url, urlToImage }) => `<li class="article__item">
+  <a class="article__link" href="${url}" target="_blank" rel="noopener noreferrer">
     <article>
-      <img src="${urlToImage}" alt="${description}" width="480" />
-      <h2>${title}</h2>
-      <p>Posted by: ${author}</p>
-      <p>${description}</p>
+      <img class="article__img" src="${urlToImage}" alt="${description}" width="240" height="140"/>
+      <h2 class="article__title">${title}</h2>
+      <p class="article__author">Posted by: ${author}</p>
+      <p class="article__description">${description}</p>
     </article>
   </a>
   </li>
-  `
-    )
+  `)
     .join('');
 }
 

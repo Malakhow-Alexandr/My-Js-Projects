@@ -12,28 +12,29 @@
     <title>Document</title>
   </head>
   <body>
-    <a href="./index.html">Go back</a>
+    <div class="container">
+      <a href="./index.html">Go back</a>
 
-    <form action="submit" class="search-form js-search-form">
-      <label class="search-only">
-        <input
-          type="text"
-          class="form-control"
-          name="query"
-          placeholder="What to look for??"
-          autocomplete="off"
-        />
-      </label>
-      <button type="submit" class="btn btn-primary">Search</button>
-    </form>
+      <form action="submit" class="search-form js-search-form">
+        <label class="search-only">
+          <input
+            type="text"
+            class="form-control"
+            name="query"
+            placeholder="What to look for??"
+            autocomplete="off"
+          />
+        </label>
+        <button type="submit" class="search-btn btn btn-primary">Search</button>
+      </form>
 
-    <ul class="articles js-articles-container"></ul>
+      <ul class="articles js-articles-container"></ul>
 
-    <button type="submit" data-action="load-more" class="btn btn-primary">
-      Show more
-    </button>
+      <button type="submit" data-action="load-more" class="show-more-btn btn btn-primary">
+        Show more
+      </button>
+    </div>
 
-  
     <script src="./js/25-pagination.js" type="module"></script>
   </body>
 </html>
