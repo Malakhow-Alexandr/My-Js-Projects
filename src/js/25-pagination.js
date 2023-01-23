@@ -82,7 +82,7 @@ async function fetchImages() {
     const hitsLength = refs.gallery.children.length;
 
     if (hitsLength + 20 >= data.totalHits) {
-      Notify.failure(
+      Notify.warning(
         `We're sorry, but you've reached the end of search results.`
       );
       loadMoreBtn.hide();
