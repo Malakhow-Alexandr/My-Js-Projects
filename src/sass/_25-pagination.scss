@@ -1,65 +1,112 @@
-.container {
-  max-width: 1400px;
+@import './variables';
+
+.form-section {
+  background-color: $form-bg-color;
+  box-shadow: $card-shadow;
+  margin-bottom: 15px;
+}
+.form-container {
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.search-form{
+.search-form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 350px;
   text-align: center;
 }
 
-.form-control{
- margin:20px 0px 20px 0px;
+.form-control {
+  margin: 15px 0px 20px 0px;
+  width: 350px;
 }
 
-.search-btn{
-  margin-left: 8px;
+.search-btn {
+  display: block;
+  width: 60px;
+  height: 50px;
+  border: none;
+  position: absolute;
+  top: 48%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
 }
-.show-more-btn{
+
+.search-btn__icon {
+  fill: $icon-fill;
+  transition: fill $animation-duration $timing-function,
+  transform $animation-duration $timing-function;
+  .search-btn:hover & {
+    fill: $icon-accent-fill;
+    transform: scale(1.2);
+  }
+}
+
+.show-more-btn {
   display: flex;
   gap: 5px;
   align-items: center;
-  margin:20px auto;
+  margin: 20px auto;
 }
-.spinner{
+.spinner {
   width: 20px;
   height: 20px;
 }
 
-.show-more-btn.is-hidden{
+.show-more-btn.is-hidden {
   display: none;
 }
 
-.show-more-btn > .spinner.is-hidden{
+.show-more-btn > .spinner.is-hidden {
   display: none;
 }
 
-
-.images {
-  width: 1400px;
+.gallery-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.gallery {
+  width: 1170px;
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  align-items: top;
   justify-content: center;
+}
+.gallery__image {
+  transition: transform $animation-duration $timing-function;
+}
+
+.gallery__image:hover {
+  transform: scale(1.1);
+}
+
+.info {
+  display: flex;
+  gap: 9px;
+  justify-content: center;
+  max-width: 285px;
+  height: 60px;
+  box-shadow: $card-shadow;
+}
+.info-item {
   padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-
-.article__item {
-  width: 265px;
-  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.images__item{
   display: block;
-  transition: transform 200ms ease;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
 }
-.images__item:hover{
-  cursor: pointer;
-  transform: scale(1.5);
+.info-item__value {
+  display: block;
+  text-align: center;
+  font-size: 13.5px;
 }
