@@ -12,34 +12,33 @@ const DEBOUNCE_DELAY = 300;
 
 refs.input.addEventListener('input', debounce(onCountryInput, DEBOUNCE_DELAY));
 
-function onCountryInput(evt) {
+async function onCountryInput(evt) {
   const searchValue = evt.target.value;
   if (searchValue.trim() === '') {
     clearMarkup();
     return;
   }
-  fetchCountries(searchValue)
-    .then(data => {
-      if (data.length === 1) {
-        appendCountryListMarkup(data);
-        appendCountryInfoMarkup(data);
-      }
+  try {
+    const response = await fetchCountries(searchValue);
+   
+    if (response.length === 1) {
+      appendCountryListMarkup(response);
+      appendCountryInfoMarkup(response);
+    }
 
-      if (data.length >= 2 && data.length <= 10) {
-        appendCountryListMarkup(data);
-        clearInfoMarkup();
-      }
-      if (data.length > 10) {
-        clearMarkup();
-        Notify.info(
-          'Too many matches found. Please enter a more specific name.'
-        );
-      }
-    })
-    .catch(error => {
+    if (response.length >= 2 && response.length <= 10) {
+      appendCountryListMarkup(response);
+      clearInfoMarkup();
+    }
+    if (response.length > 10) {
       clearMarkup();
-      Notify.failure('Oops, there is no country with that name');
-    });
+      Notify.info('Too many matches found. Please enter a more specific name.');
+    }
+  } catch (error) {
+    console.log(error);
+    clearMarkup();
+    Notify.failure('Oops, there is no country with that name');
+  }
 }
 
 function countryListMarkup(data) {

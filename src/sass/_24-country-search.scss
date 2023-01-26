@@ -95,6 +95,7 @@ body {
   font-size: 20px;
   border-radius: 25px;
   transition: all 300ms ease;
+  cursor: pointer;
 }
 #check:checked ~ .search-box .icon {
   background: $form-bg-color;
